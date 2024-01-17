@@ -1,0 +1,15 @@
+POST  http://localhost:5000/customer
+Content-Type: application/json
+
+
+{
+    "namadepan" : "surya",
+    "namabelakang" :"ramadan",
+    "nomor"  : "089563597221",
+    "email"  :"suryacbs123@gmail.com",
+    "alamat" :"kp.cibodas,ds.banjarsari,kec bayongbong kab garut",
+    "kota"   : "garut",
+    "pos" : "44162"
+}
+###
+GET  http://localhost:5000/customer

@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+ id String @id @default(auto()) @map("_id") @db.ObjectId
+ namaproduct String
+ category String
+ hargaawal Int?
+ diskon Int?
+ hargatotal Int
+ transaksi Transaksi[]
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ image String
+ url String
+ description String?
+ stok Int?
+
+ @@map("product")
+
+}
+
+model User {
+id String @id @default(auto()) @map("_id") @db.ObjectId
+email String?
+password String?
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+@@map("user")
+@@unique([email])
+}
+
+model Customer {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  namadepan String
+  namabelakang String
+  alamat String
+  pos String
+  kota String
+  nomor Int
+  email String
+  transaksi Transaksi[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("customer")
+  @@unique([email])
+
+
+}
+
+
+model Transaksi {
+id String @id @default(auto()) @map("_id") @db.ObjectId
+productid String @db.ObjectId
+customerId String @db.ObjectId
+customer Customer @relation(fields: [customerId],references: [id])
+product Product @relation(fields: [productid],references: [id])
+quantity  Int
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+
+}
