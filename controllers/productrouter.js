@@ -67,7 +67,7 @@ export const postproduct = async (req,res)=>{
     const filesize = file.data.length
     const ext = path.extname(file.name)
     const fileName = file.md5 + ext;
-    const url = `${req.protocol}://${req.get("https://apistore.cyclic.app")}/images/${fileName}`
+    const url = `${req.protocol}://"https://apistore.cyclic.app"/images/${fileName}`
     const allowType = ['.png','.jpg','.jpeg']
 
     if(!namaproduct || !category || !hargaawal 
@@ -75,7 +75,7 @@ export const postproduct = async (req,res)=>{
     if(!allowType.includes(ext.toLowerCase())) res.status(400).json({msg:"type yang anda masukan salah"})
     if(filesize > 5000000) res.status(400).json({msg : "file tidak harus dibawah 5 mb"})
 
-    file.mv(`./public/images/${fileName}`,async (err)=>{
+    file.mv(`/https://apistore.cyclic.app/public/images/${fileName}`,async (err)=>{
         console.log(err)
         
         
@@ -126,16 +126,16 @@ export const postproduct = async (req,res)=>{
         
         if(!allowType.includes(ext.toLowerCase())) res.status(400).json({msg:"type yang anda masukan salah"})
         if(filesize > 5000000) res.status(400).json({msg : "file tidak harus dibawah 5 mb"})
-        const pathdata = `./public/images/${product.image}`
+        const pathdata = `/https://apistore.cyclic.app/public/images/${product.image}`
         fs.unlinkSync(pathdata)
-        file.mv(`./public/images/${fileName}`,async (err)=>{
+        file.mv(`/https://apistore.cyclic.app/public/images/${fileName}`,async (err)=>{
             if(err) return res.status(500).json({msg:err.message})
          
     }
     
     )
     
-    const url = `${req.protocol}://${req.get("host")}/images/${fileName}`
+    const url = `${req.protocol}://https://apistore.cyclic.app/images/${fileName}`
     const {namaproduct,category,hargaawal,diskon,
         hargatotal,stok,description} = req.body;
        
@@ -178,7 +178,7 @@ export const postproduct = async (req,res)=>{
     })
         if(!product) return res.status(400).json({msg: "product tidak ditemukan"})
 
-    const pathdata = `./public/images/${product.image}`
+    const pathdata = `/https://apistore.cyclic.app/public/images/${product.image}`
     fs.unlinkSync(pathdata)
     const data = await prisma.product.delete({
         where :{
