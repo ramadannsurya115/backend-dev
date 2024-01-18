@@ -126,12 +126,8 @@ export const postproduct = async (req,res)=>{
         
         if(!allowType.includes(ext.toLowerCase())) res.status(400).json({msg:"type yang anda masukan salah"})
         if(filesize > 5000000) res.status(400).json({msg : "file tidak harus dibawah 5 mb"})
-        file.mv(`https://apistore.cyclic.app/public/images/${fileName}`,async (err)=>{
-            if(err) return res.status(500).json({msg:err.message})
-         
-    }
+       
     
-    )
     
     const url = `/https://apistore.cyclic.app/images/${fileName}`
     const {namaproduct,category,hargaawal,diskon,
