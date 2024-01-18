@@ -1,51 +1,46 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "public/**/*", 
-        "use": "@vercel/node" },
-      {
-        "src": "app.js",
-        "use": "@vercel/node"
-        
-      }
-    ],
-    "routes": [
-      {
-        "src": "/register/(.*)",
-        "dest": "/routes/register.js"
-      },
-      {
-        "src": "/login/(.*)",
-        "dest": "/routes/login.js"
-      },
-      {
-        "src": "/product/(.*)",
-        "dest": "/routes/product.js"
-      },
-      {
-        "src": "/diskon/(.*)",
-        "dest": "/routes/diskon.js"
-      },
-      {
-        "src": "/category/(.*)",
-        "dest": "/routes/category.js"
-      },
-      {
-        "src": "/customer/(.*)",
-        "dest": "/routes/customer.js"
-      },
-      {
-        "src": "/transaksi/(.*)",
-        "dest": "/routes/transaksi.js"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "app.js"
-      },
-      { "src": "/(.*)", 
-        "dest": "/public/$1" 
-      }
-    ]
-  
-  }
-  
+  "version": 2,
+  "builds": [
+    { "src": "public/**/*", "use": "@vercel/node" },
+    { "src": "routes/**/*", "use": "@vercel/node" }, 
+    { "src": "app.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    {
+      "src": "/register/(.*)",
+      "dest": "/routes/register.js"
+    },
+    {
+      "src": "/login/(.*)",
+      "dest": "/routes/login.js"
+    },
+    {
+      "src": "/product/(.*)",
+      "dest": "/routes/product.js"
+    },
+    {
+      "src": "/diskon/(.*)",
+      "dest": "/routes/diskon.js"
+    },
+    {
+      "src": "/category/(.*)",
+      "dest": "/routes/category.js"
+    },
+    {
+      "src": "/customer/(.*)",
+      "dest": "/routes/customer.js"
+    },
+    {
+      "src": "/transaksi/(.*)",
+      "dest": "/routes/transaksi.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "app.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    }
+  ]
+}
