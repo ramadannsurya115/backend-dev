@@ -75,7 +75,8 @@ export const postproduct = async (req,res)=>{
     if(!allowType.includes(ext.toLowerCase())) res.status(400).json({msg:"type yang anda masukan salah"})
     if(filesize > 5000000) res.status(400).json({msg : "file tidak harus dibawah 5 mb"})
 
-
+   
+        
         
         try {
             const result = await prisma.product.create({
@@ -98,6 +99,7 @@ export const postproduct = async (req,res)=>{
             console.log(error)
     }
 }
+
 
 
  export const updateproduct = async(req,res)=>{

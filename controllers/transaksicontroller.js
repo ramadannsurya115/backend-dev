@@ -40,49 +40,48 @@ export const gettransaksi = async(req,res)=>{
 
 }
 
-export const saveTransaksi = async(req,res)=>{
-    const {id,price,name,quantity,namadepan,namabelakang,nomor,email,alamat,pos,kota} = req.body
-    const customer = await prisma.transaksi.findUnique({
-         select :{
-            where :{
-            customer :{
-              email : email
-                
-            }
-         }
-        }
-    })
+export const saveTransaksi = async (req, res) => {
+    const { id, price, name, quantity, namadepan, namabelakang, nomor, email, alamat, pos, kota } = req.body;
 
-    if(customer){
-        res.status(403).json({msg:"email sudah terdaftar"})
-    }
-    const data = await prisma.transaksi.create({
-        data :{
-               customer :{
-                create :{
-                    namadepan : namadepan,
-                    namabelakang : namabelakang,
-                    nomor : Number(nomor) ,
-                    email: email,
-                    alamat: alamat,
-                    kota : kota,
-                    pos : pos
-
-                }
-                
-               }  ,
-               product :{
-                connect :{
-                    id : id
-                }
-               },
-               quantity : quantity           
-        }
-    })
-    
     try {
-        res.status(201).json({msg:"Data berhasil disimpan",data})
+        // Check if the customer with the provided email already exists
+        const existingCustomer = await prisma.transaksi.findUnique({
+            where: {
+                customer: {
+                    email: email
+                }
+            }
+        });
+
+        if (existingCustomer) {
+            return res.status(403).json({ msg: "Email sudah terdaftar" });
+        }
+
+        // If the customer doesn't exist, create a new one
+        const newCustomer = await prisma.transaksi.create({
+            data: {
+                customer: {
+                    create: {
+                        namadepan: namadepan,
+                        namabelakang: namabelakang,
+                        nomor: Number(nomor),
+                        email: email,
+                        alamat: alamat,
+                        kota: kota,
+                        pos: pos
+                    }
+                },
+                product: {
+                    connect: {
+                        id: id
+                    }
+                },
+                quantity: quantity
+            }
+        });
+
+        res.status(201).json({ msg: "Data berhasil disimpan", data: newCustomer });
     } catch (error) {
-        res.status(400).json({msg : error.message})
+        res.status(400).json({ msg: error.message });
     }
-}
+};
