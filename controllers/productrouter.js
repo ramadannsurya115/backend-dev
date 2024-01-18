@@ -126,8 +126,6 @@ export const postproduct = async (req,res)=>{
         
         if(!allowType.includes(ext.toLowerCase())) res.status(400).json({msg:"type yang anda masukan salah"})
         if(filesize > 5000000) res.status(400).json({msg : "file tidak harus dibawah 5 mb"})
-        const pathdata = `/https://apistore.cyclic.app/public/images/${product.image}`
-        fs.unlinkSync(pathdata)
         file.mv(`/https://apistore.cyclic.app/public/images/${fileName}`,async (err)=>{
             if(err) return res.status(500).json({msg:err.message})
          
@@ -178,8 +176,6 @@ export const postproduct = async (req,res)=>{
     })
         if(!product) return res.status(400).json({msg: "product tidak ditemukan"})
 
-    const pathdata = `/https://apistore.cyclic.app/public/images/${product.image}`
-    fs.unlinkSync(pathdata)
     const data = await prisma.product.delete({
         where :{
             id : req.params.id
