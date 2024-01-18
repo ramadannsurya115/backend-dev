@@ -66,7 +66,7 @@ export const postproduct = async (req,res)=>{
     const filesize = file.data.length
     const ext = path.extname(file.name)
     const fileName = file.md5 + ext;
-    const url = `/https://apistore5000.vercel.app/images/${fileName}`
+    const url = `/https://lovely-pantsuit-moth.cyclic.app/images/${fileName}`
     const allowType = ['.png','.jpg','.jpeg']
 
     if(!namaproduct || !category || !hargaawal 
@@ -126,7 +126,7 @@ export const postproduct = async (req,res)=>{
        
     
     
-    const url = `/https://apistore5000.vercel.app/images/${fileName}`
+    const url = `/https://lovely-pantsuit-moth.cyclic.app/images/${fileName}`
     const {namaproduct,category,hargaawal,diskon,
         hargatotal,stok,description} = req.body;
        
