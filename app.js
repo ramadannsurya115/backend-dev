@@ -9,7 +9,7 @@ import categoryrouter from "./routes/category.js"
 import customerRouter from "./routes/customer.js"
 import tranksasiRouter from "./routes/transaksi.js"
 const app = express();
-const port = 5000;
+const port = 3000;
 app.use(cors())
 app.use(express.json())
 app.use(fileUpload())
