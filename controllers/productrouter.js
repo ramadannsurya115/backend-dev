@@ -67,7 +67,7 @@ export const postproduct = async (req,res)=>{
     const filesize = file.data.length
     const ext = path.extname(file.name)
     const fileName = file.md5 + ext;
-    const url = `${req.protocol}://https://apistore.cyclic.app/images/${fileName}`
+    const url = `https://apistore.cyclic.app/images/${fileName}`
     const allowType = ['.png','.jpg','.jpeg']
 
     if(!namaproduct || !category || !hargaawal 
@@ -135,7 +135,7 @@ export const postproduct = async (req,res)=>{
     
     )
     
-    const url = `${req.protocol}://https://apistore.cyclic.app/images/${fileName}`
+    const url = `https://apistore.cyclic.app/images/${fileName}`
     const {namaproduct,category,hargaawal,diskon,
         hargatotal,stok,description} = req.body;
        
