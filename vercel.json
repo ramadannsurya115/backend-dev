@@ -39,10 +39,7 @@
         "src": "/(.*)",
         "dest": "app.js"
       }
-    ],
-    "env": {
-      "DATABASE_URL": "mongodb+srv://surya:1N3ik9NqzMZ4tKB8@cluster0.ilsw6r3.mongodb.net/store",
-      "JWT_SECRET": "KWKWMKWAMEKWAMEKWAEMSAD22112234444ASDKJI2212121212"
-    }
+    ]
+  
   }
   
