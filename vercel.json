@@ -1,0 +1,48 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "app.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/register/(.*)",
+        "dest": "/routes/register.js"
+      },
+      {
+        "src": "/login/(.*)",
+        "dest": "/routes/login.js"
+      },
+      {
+        "src": "/product/(.*)",
+        "dest": "/routes/product.js"
+      },
+      {
+        "src": "/diskon/(.*)",
+        "dest": "/routes/diskon.js"
+      },
+      {
+        "src": "/category/(.*)",
+        "dest": "/routes/category.js"
+      },
+      {
+        "src": "/customer/(.*)",
+        "dest": "/routes/customer.js"
+      },
+      {
+        "src": "/transaksi/(.*)",
+        "dest": "/routes/transaksi.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "app.js"
+      }
+    ],
+    "env": {
+      "DATABASE_URL": "mongodb+srv://surya:1N3ik9NqzMZ4tKB8@cluster0.ilsw6r3.mongodb.net/store",
+      "JWT_SECRET": "KWKWMKWAMEKWAMEKWAEMSAD22112234444ASDKJI2212121212"
+    }
+  }
+  
