@@ -7,40 +7,17 @@
   ],
   "routes": [
     {
-      "src": "/register/(.*)",
-      "dest": "/routes/register.js"
-    },
-    {
-      "src": "/login/(.*)",
-      "dest": "/routes/login.js"
-    },
-    {
-      "src": "/product/(.*)",
-      "dest": "/routes/product.js"
-    },
-    {
-      "src": "/diskon/(.*)",
-      "dest": "/routes/diskon.js"
-    },
-    {
-      "src": "/category/(.*)",
-      "dest": "/routes/category.js"
-    },
-    {
-      "src": "/customer/(.*)",
-      "dest": "/routes/customer.js"
-    },
-    {
-      "src": "/transaksi/(.*)",
-      "dest": "/routes/transaksi.js"
+      "src": "/api/(.*)",
+      "methods": ["GET", "POST", "PUT", "DELETE"],
+      "dest": "/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "app.js"
+      "dest": "/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "/public/$1"
+      "src": "/public/images/(.*)",
+      "dest": "/public/images/$1"
     }
   ]
 }
