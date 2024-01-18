@@ -12,4 +12,4 @@ Content-Type: application/json
     "pos" : "44162"
 }
 ###
-GET  http://localhost:5000/customer
+GET  https://apistore.cyclic.app/product

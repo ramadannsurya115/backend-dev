@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken"
 
-const jwtvalidate = async(req,res,next)=>{
+export const jwtvalidate = async(req,res,next)=>{
     const {authorization} = req.headers;
 
     if(!authorization){
