@@ -75,9 +75,7 @@ export const postproduct = async (req,res)=>{
     if(!allowType.includes(ext.toLowerCase())) res.status(400).json({msg:"type yang anda masukan salah"})
     if(filesize > 5000000) res.status(400).json({msg : "file tidak harus dibawah 5 mb"})
 
-    file.mv(`https://apistore.cyclic.app/public/images/${fileName}`,async (err)=>{
-        console.log(err)
-        
+
         
         try {
             const result = await prisma.product.create({
@@ -101,8 +99,6 @@ export const postproduct = async (req,res)=>{
     }
 }
 
-)
-}
 
  export const updateproduct = async(req,res)=>{
     
